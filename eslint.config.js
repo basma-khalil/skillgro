@@ -5,6 +5,8 @@ import reactRefresh from 'eslint-plugin-react-refresh';
 import tseslint from 'typescript-eslint';
 import reactX from 'eslint-plugin-react-x';
 import reactDom from 'eslint-plugin-react-dom';
+import vitest from '@vitest/eslint-plugin';
+import cypress from 'eslint-plugin-cypress';
 
 export default tseslint.config(
   { ignores: ['dist'] },
@@ -37,6 +39,28 @@ export default tseslint.config(
       ],
       ...reactX.configs['recommended-typescript'].rules,
       ...reactDom.configs.recommended.rules,
+    },
+  },
+
+  // Test files configuration
+  {
+    files: ['cypress/**/*.{ts,tsx}'],
+    ...cypress.configs.recommended,
+    languageOptions: {
+      parserOptions: {
+        project: ['./cypress/tsconfig.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+    },
+  },
+  {
+    files: ['src/**/*.test.{ts,tsx}', 'src/tests/setup.ts'],
+    ...vitest.configs.recommended,
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.test.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
     },
   }
 );

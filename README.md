@@ -19,6 +19,7 @@ A dynamic e-learning platform built as a clone of the SkillGro template, showcas
     - [Installing](#installing)
     - [Development Mode](#development-mode)
     - [Production Build](#production-build)
+    - [Testing](#testing)
   - [Credits](#credits)
   - [License](#license)
   - [Live Demo](#live-demo)
@@ -35,7 +36,7 @@ SkillGro is a modern e-learning platform built with [**React**](https://react.de
 
 ### Built With
 
-[![Built With](https://skillicons.dev/icons?i=react,ts,vite,tailwind,)](https://skillicons.dev)
+[![Built With](https://skillicons.dev/icons?i=react,ts,vite,tailwind,vitest,cypress)](https://skillicons.dev)
 
 ### Features
 
@@ -84,6 +85,20 @@ npm run build
 ```
 
 It correctly bundles React in production mode and optimizes the build for the best performance.
+
+### Testing
+
+To run **Unit / Integration tests** via [**Vitest**](https://vitest.dev/ "Go to website") with [**React Testing Library**](https://testing-library.com/docs/react-testing-library/intro/ "Go to website"), run the following command:
+
+```
+npm run test
+```
+
+To run **End-to-End (E2E) tests** via [**Cypress**](https://www.cypress.io/ "Go to website"), run the following command:
+
+```
+npm run cy:open
+```
 
 ## Credits
 
